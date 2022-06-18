@@ -1,9 +1,12 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, StatusBar } from 'react-native';
 import NativeMaps from './src/components/map/NativeMapsComponent';
 
 export default function App() {
   return (
-    <NativeMaps></NativeMaps>
+    <>
+      <StatusBar/>
+      <NativeMaps></NativeMaps>
+    </>
   );
 }
 
