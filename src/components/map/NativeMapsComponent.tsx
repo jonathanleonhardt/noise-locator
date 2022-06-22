@@ -8,23 +8,38 @@ const NativeMaps = () => {
     longitude: -122.4324
   });
 
+  const [anotherMarker, setAnotherMarker] = useState({
+    latitude: 0,
+    longitude: 0
+  });
+
+  const mapDefaultRegion = {
+    latitude: 37.78825,
+    longitude: -122.4324,
+    latitudeDelta: 0.0922,
+    longitudeDelta: 0.0421,
+  }
+
   return (
     <View style={styles.container}>
       <MapView
         style= {styles.map}
-        initialRegion={{
-          latitude: 37.78825,
-          longitude: -122.4324,
-          latitudeDelta: 0.0922,
-          longitudeDelta: 0.0421,
-        }}
+        initialRegion={ mapDefaultRegion }
+        onPress= { (e) => setAnotherMarker( e.nativeEvent.coordinate )}
       >
          <Marker draggable
           key={1}
-          coordinate={marker}
+          coordinate={ marker }
           title={'teste'}
           description={`${marker.latitude}, ${marker.longitude}`}
           onDragEnd={(e) => setMarker( e.nativeEvent.coordinate )}
+        />
+        <Marker draggable
+          key={2}
+          coordinate={ anotherMarker }
+          title={'teste'}
+          description={`${marker.latitude}, ${marker.longitude}`}
+          onDragEnd={(e) => setAnotherMarker( e.nativeEvent.coordinate )}
         />
       </MapView>
     </View>
