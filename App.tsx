@@ -1,20 +1,14 @@
-import { StyleSheet, StatusBar } from 'react-native';
-import NativeMaps from './src/components/map/NativeMapsComponent';
+import {  StatusBar } from 'react-native';
+import TabsNavigation from './src/components/bottomTabsMenu/bottomNavigationComponent';
+import { Provider as PaperProvider } from 'react-native-paper';
 
 export default function App() {
   return (
     <>
-      <StatusBar/>
-      <NativeMaps></NativeMaps>
+      <PaperProvider>
+        <StatusBar />
+        <TabsNavigation />
+      </PaperProvider>
     </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

@@ -25,7 +25,7 @@ const NativeMaps = () => {
       <MapView
         style= {styles.map}
         initialRegion={ mapDefaultRegion }
-        onPress= { (e) => setAnotherMarker( e.nativeEvent.coordinate )}
+        onPress = { (e) => setAnotherMarker( e.nativeEvent.coordinate )}
       >
          <Marker draggable
           key={1}
