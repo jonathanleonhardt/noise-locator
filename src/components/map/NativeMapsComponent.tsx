@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
+import SearchBar from './SearchBarComponent';
 
 const NativeMaps = () => {
   const [marker, setMarker] = useState({
@@ -23,25 +24,28 @@ const NativeMaps = () => {
   return (
     <View style={styles.container}>
       <MapView
-        style= {styles.map}
-        initialRegion={ mapDefaultRegion }
-        onPress = { (e) => setAnotherMarker( e.nativeEvent.coordinate )}
+        style={styles.map}
+        initialRegion={mapDefaultRegion}
+        onPress={(e) => setAnotherMarker(e.nativeEvent.coordinate)}
       >
-         <Marker draggable
+        <Marker draggable
           key={1}
-          coordinate={ marker }
+          coordinate={marker}
           title={'teste'}
           description={`${marker.latitude}, ${marker.longitude}`}
-          onDragEnd={(e) => setMarker( e.nativeEvent.coordinate )}
+          onDragEnd={(e) => setMarker(e.nativeEvent.coordinate)}
         />
         <Marker draggable
           key={2}
-          coordinate={ anotherMarker }
+          coordinate={anotherMarker}
           title={'teste'}
           description={`${marker.latitude}, ${marker.longitude}`}
-          onDragEnd={(e) => setAnotherMarker( e.nativeEvent.coordinate )}
+          onDragEnd={(e) => setAnotherMarker(e.nativeEvent.coordinate)}
         />
       </MapView>
+      <View style={{ position: 'absolute', top: 10, width: '100%' }}>
+        <SearchBar />
+      </View>
     </View>
   );
 };
@@ -63,6 +67,7 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     bottom: 0,
+    flex: 1,
   },
 });
 
